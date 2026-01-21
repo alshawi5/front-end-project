@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { getBookById, deleteBook } from '../../services/book';
 import Review from '../Review/Review';
-
+// book details page to make it nicer to see
 const BookDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
