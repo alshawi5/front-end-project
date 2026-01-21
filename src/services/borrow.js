@@ -28,7 +28,6 @@ async function getUserBorrows() {
   return response.data;
 }
 
-// Update borrow (e.g., mark returned)
 async function updateBorrow(borrowId, data) {
   const token = window.localStorage.getItem('token');
   const response = await axios.put(`${BASE_URL}/${borrowId}`, data, {

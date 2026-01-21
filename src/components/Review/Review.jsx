@@ -30,7 +30,6 @@ const Review = ({ bookId }) => {
     }
   };
 
-  // Inline styles
   const containerStyle = {
     marginTop: '20px',
     padding: '15px',

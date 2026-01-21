@@ -10,7 +10,6 @@ const BookDetails = () => {
   const [book, setBook] = useState(null);
   const [user, setUser] = useState(null);
 
-  // Get user from token
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -19,7 +18,6 @@ const BookDetails = () => {
     }
   }, []);
 
-  // Fetch book by ID
   useEffect(() => {
     const fetchBook = async () => {
       try {
@@ -32,7 +30,6 @@ const BookDetails = () => {
     fetchBook();
   }, [id]);
 
-  // Delete book
   const handleDelete = async () => {
     if (!window.confirm('Are you sure you want to delete this book?')) return;
     await deleteBook(id);
@@ -41,7 +38,6 @@ const BookDetails = () => {
 
   if (!book) return <p>Loading...</p>;
 
-  // Inline styles
   const containerStyle = {
     maxWidth: '600px',
     margin: '50px auto',

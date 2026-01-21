@@ -25,19 +25,15 @@ const Borrow = () => {
     fetchData();
   }, []);
 
-  // Borrow a book (SAFE)
   const handleBorrow = async (bookId) => {
     try {
       const newBorrow = await borrowBook(bookId);
 
-      // Update borrows
       setBorrows((prev) => [...prev, newBorrow]);
 
-      // Refresh books from backend to stay correct
       const updatedBooks = await getAllBooks();
       setBooks(updatedBooks);
 
-      // Go to borrow details
       navigate(`/borrows/${newBorrow._id}`);
     } catch (err) {
       alert('This book is already borrowed.');
@@ -45,12 +41,10 @@ const Borrow = () => {
     }
   };
 
-  // Return a book
   const handleReturn = async (borrowId) => {
     try {
       await updateBorrow(borrowId, { status: 'returned' });
 
-      // Refresh data from backend
       const booksData = await getAllBooks();
       const borrowsData = await getUserBorrows();
 
@@ -61,7 +55,6 @@ const Borrow = () => {
     }
   };
 
-  // ---------- STYLES ----------
   const containerStyle = {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',

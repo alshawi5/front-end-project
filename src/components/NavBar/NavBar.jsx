@@ -12,7 +12,6 @@ const NavBar = () => {
     navigate('/');
   };
 
-  // Inline styles
   const navStyle = {
     display: 'flex',
     justifyContent: 'space-between',

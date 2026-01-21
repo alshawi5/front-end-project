@@ -23,7 +23,6 @@ const Books = () => {
   });
   const [isAdmin, setIsAdmin] = useState(false);
 
-  // Load books + check admin role
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -43,12 +42,10 @@ const Books = () => {
     fetchBooks();
   }, []);
 
-  // Handle form change
   const handleChange = (e) => {
     setNewBook({ ...newBook, [e.target.name]: e.target.value });
   };
 
-  // Create book → go to details page
   const handleCreate = async () => {
     try {
       const createdBook = await createBook(newBook);
@@ -58,7 +55,6 @@ const Books = () => {
     }
   };
 
-  // Update book title (simple prompt)
   const handleUpdate = async (id) => {
     const updatedTitle = prompt('Enter new title');
     if (!updatedTitle) return;
@@ -71,7 +67,6 @@ const Books = () => {
     }
   };
 
-  // Delete book
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this book?')) return;
 
@@ -83,7 +78,6 @@ const Books = () => {
     }
   };
 
-  // Inline Styles
   const containerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
