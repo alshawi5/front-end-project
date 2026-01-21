@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
-
+// same as the template 
 const NavBar = () => {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
