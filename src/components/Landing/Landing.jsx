@@ -4,7 +4,7 @@ const Landing = () => {
     margin: '80px auto',
     padding: '40px',
     borderRadius: '12px',
-    backgroundColor: '#f3f4f6', // light gray background
+    backgroundColor: '#f3f4f6',
     boxShadow: '0 6px 25px rgba(0,0,0,0.1)',
     textAlign: 'center',
   };
@@ -32,7 +32,7 @@ const Landing = () => {
     fontWeight: '600',
     color: '#fff',
   };
-
+  // landing same as template 
   const signUpButton = { ...buttonStyle, backgroundColor: '#16a34a' };
   const signInButton = { ...buttonStyle, backgroundColor: '#2563eb' };
 
