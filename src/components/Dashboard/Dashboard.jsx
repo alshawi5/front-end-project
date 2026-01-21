@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import * as testService from '../../services/testService';
-
+// same as the template ig 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
   const [message, setMessage] = useState('');
