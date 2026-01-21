@@ -25,6 +25,7 @@ async function getUserBorrows() {
       Authorization: `Bearer ${token}`,
     },
   });
+  console.log('All borrows for me', response.body)
   return response.data;
 }
 

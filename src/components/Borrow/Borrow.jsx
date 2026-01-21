@@ -16,6 +16,7 @@ const Borrow = () => {
         setBooks(booksData);
 
         const borrowsData = await getUserBorrows();
+        console.log('borrow data',borrowsData)
         setBorrows(borrowsData);
       } catch (err) {
         console.error(err);
@@ -34,7 +35,7 @@ const Borrow = () => {
       const updatedBooks = await getAllBooks();
       setBooks(updatedBooks);
 
-      navigate(`/borrows/${newBorrow._id}`);
+    //   navigate(`/borrows/${newBorrow._id}`);
     } catch (err) {
       alert('This book is already borrowed.');
       console.error(err);
@@ -100,33 +101,48 @@ const Borrow = () => {
               >
                 Borrow
               </button>
+              {/* <button
+                style={buttonStyle}
+                onClick={() => navigate(`/borrow/${newBorrow}`)}
+
+              >
+                view details
+                
+              </button> */}
             </div>
           ))}
       </div>
 
       <h2 style={{ marginTop: '40px' }}>My Borrows</h2>
       <div style={containerStyle}>
-  {borrows.map((borrow) => (
-    <div key={borrow._id} style={cardStyle}>
-      <h3>
-        {borrow.book ? borrow.book.title : 'Book unavailable'}      
-        {/* added this to make sure its title */}
-      </h3>
+ {borrows.map((borrow) => (
+  <div key={borrow._id} style={cardStyle}>
+    <h3>
+      {borrow.book ? borrow.book.title : 'Book unavailable'}
+    </h3>
 
-      <p>
-        <strong>Status:</strong> {borrow.status}
-      </p>
+    <p>
+      <strong>Status:</strong> {borrow.status}
+    </p>
 
-      {borrow.status === 'borrowed' && borrow.book && (
-        <button
-          style={buttonStyle}
-          onClick={() => handleReturn(borrow._id)}  
-        >
-          Return
-        </button>
-      )}
-    </div>
-  ))}
+    <button
+      style={{ ...buttonStyle, backgroundColor: '#374151' }}
+      onClick={() => navigate(`/borrows/${borrow._id}`)}
+    >
+      View Details
+    </button>
+
+    {borrow.status === 'borrowed' && borrow.book && (
+      <button
+        style={buttonStyle}
+        onClick={() => handleReturn(borrow._id)}
+      >
+        Return
+      </button>
+    )}
+  </div>
+))}
+
 </div>
     </div>
   );

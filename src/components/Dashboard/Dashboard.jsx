@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import * as testService from '../../services/testService';
-// same as the template
+
 const Dashboard = () => {
   const { user } = useContext(UserContext);
   const [message, setMessage] = useState('');
@@ -19,42 +19,109 @@ const Dashboard = () => {
     if (user) fetchTest();
   }, [user]);
 
-  // Inline styles
-  const containerStyle = {
-    maxWidth: '600px',
-    margin: '40px auto',
-    padding: '30px',
-    backgroundColor: '#fff',
-    borderRadius: '12px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px',
+  const container = {
+    padding: '40px',
+    maxWidth: '1100px',
+    margin: '0 auto',
   };
 
-  const headingStyle = {
+  const header = {
     fontSize: '28px',
-    color: '#111827',
+    fontWeight: '700',
     marginBottom: '10px',
   };
 
-  const paragraphStyle = {
-    fontSize: '16px',
-    color: '#374151',
+  const subText = {
+    color: '#6b7280',
+    marginBottom: '30px',
   };
 
-  const messageStyle = {
-    fontWeight: '600',
-    color: '#2563eb',
-    fontSize: '18px',
+  const grid = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+    gap: '20px',
+  };
+
+  const card = {
+    background: '#fff',
+    borderRadius: '14px',
+    padding: '22px',
+    boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
+  };
+
+  const cardTitle = {
+    fontSize: '14px',
+    textTransform: 'uppercase',
+    color: '#6b7280',
+    marginBottom: '6px',
+  };
+
+  const cardValue = {
+    fontSize: '26px',
+    fontWeight: '700',
+  };
+
+  const adminCard = {
+    ...card,
+    borderLeft: '6px solid #2563eb',
+  };
+
+  const userCard = {
+    ...card,
+    borderLeft: '6px solid #10b981',
   };
 
   return (
-    <main style={containerStyle}>
-      <h1 style={headingStyle}>Welcome, {user.username}</h1>
-      <p style={paragraphStyle}>
-this is your best book store ever      </p>
-      <p style={messageStyle}>{message}</p>
+    <main style={container}>
+      <h1 style={header}>Welcome back, {user.username}</h1>
+      <p style={subText}>
+        {user.role === 'admin'
+          ? 'Admin dashboard overview'
+          : 'Your personal dashboard'}
+      </p>
+
+      {/* Admin Dashboard */}
+      {user.role === 'admin' ? (
+        <div style={grid}>
+          <div style={adminCard}>
+            <p style={cardTitle}>Total Users</p>
+            <p style={cardValue}>—</p>
+          </div>
+
+          <div style={adminCard}>
+            <p style={cardTitle}>Total Books</p>
+            <p style={cardValue}>—</p>
+          </div>
+
+          <div style={adminCard}>
+            <p style={cardTitle}>Top Reviews</p>
+            <p style={cardValue}>—</p>
+          </div>
+        </div>
+      ) : (
+        /* User Dashboard */
+        <div style={grid}>
+          <div style={userCard}>
+            <p style={cardTitle}>Borrowed Books</p>
+            <p style={cardValue}>—</p>
+          </div>
+
+          <div style={userCard}>
+            <p style={cardTitle}>Active Borrows</p>
+            <p style={cardValue}>—</p>
+          </div>
+
+          <div style={userCard}>
+            <p style={cardTitle}>Account Status</p>
+            <p style={cardValue}>Active</p>
+          </div>
+        </div>
+      )}
+
+      {/* Existing message (unchanged)
+      <div style={{ marginTop: '30px', fontWeight: '600' }}>
+        {message}
+      </div> */}
     </main>
   );
 };

@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react';
 import { createReview, getBookReviews } from '../../services/review';
+// export const getTopReviews = async () => {
+//   const res = await axios.get(
+//     `${import.meta.env.VITE_BACK_END_SERVER_URL}/reviews/top`
+//   );
+//   return res.data;
+// };
+
 // working like expected 
 const Review = ({ bookId }) => {
   const [reviews, setReviews] = useState([]);
@@ -17,6 +24,7 @@ const Review = ({ bookId }) => {
     };
     fetchReviews();
   }, [bookId]);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +37,7 @@ const Review = ({ bookId }) => {
       console.error(err);
     }
   };
+  
 
   const containerStyle = {
     marginTop: '20px',
