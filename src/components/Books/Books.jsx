@@ -21,7 +21,7 @@ const Books = () => {
     description: '',
     publishYear: '',
   });
-  
+
   const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
     const fetchBooks = async () => {
@@ -137,7 +137,7 @@ const Books = () => {
   return (
     <div>
       <h1>Books</h1>
-
+    {/* admin only can edit and delete  */}
       {/* Admin Create Book */}
       {isAdmin && (
         <div style={formStyle}>
