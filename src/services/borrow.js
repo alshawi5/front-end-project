@@ -36,6 +36,7 @@ async function updateBorrow(borrowId, data) {
       Authorization: `Bearer ${token}`,
     },
   });
+    console.log("returend")
   return response.data;
 }
 
