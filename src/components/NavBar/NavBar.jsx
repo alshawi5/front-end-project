@@ -106,4 +106,6 @@ const NavBar = () => {
   );
 };
 
+// modfiyed the nav bar 
+
 export default NavBar;
