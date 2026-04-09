@@ -20,60 +20,68 @@ const Dashboard = () => {
   }, [user]);
 
   const container = {
-    padding: '40px',
+    padding: '40px 32px',
     maxWidth: '1100px',
     margin: '0 auto',
   };
 
   const header = {
-    fontSize: '28px',
-    fontWeight: '700',
-    marginBottom: '10px',
+    fontSize: '30px',
+    fontWeight: '800',
+    marginBottom: '8px',
+    color: '#f1f5f9',
+    letterSpacing: '-0.5px',
   };
 
   const subText = {
-    color: '#6b7280',
-    marginBottom: '30px',
+    color: '#64748b',
+    fontSize: '15px',
+    marginBottom: '36px',
   };
 
   const grid = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-    gap: '20px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    gap: '18px',
   };
 
   const card = {
-    background: '#fff',
-    borderRadius: '14px',
-    padding: '22px',
-    boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
+    background: 'rgba(255,255,255,0.05)',
+    backdropFilter: 'blur(12px)',
+    border: '1px solid rgba(255,255,255,0.08)',
+    borderRadius: '16px',
+    padding: '24px',
+    transition: 'transform 0.2s, box-shadow 0.2s',
   };
 
   const cardTitle = {
-    fontSize: '14px',
+    fontSize: '11px',
     textTransform: 'uppercase',
-    color: '#6b7280',
-    marginBottom: '6px',
+    letterSpacing: '1px',
+    color: '#64748b',
+    marginBottom: '10px',
+    fontWeight: '600',
   };
 
   const cardValue = {
-    fontSize: '26px',
-    fontWeight: '700',
+    fontSize: '28px',
+    fontWeight: '800',
+    color: '#f1f5f9',
   };
 
   const adminCard = {
     ...card,
-    borderLeft: '6px solid #2563eb',
+    borderTop: '3px solid #6366f1',
   };
 
   const userCard = {
     ...card,
-    borderLeft: '6px solid #10b981',
+    borderTop: '3px solid #10b981',
   };
 
   return (
     <main style={container}>
-      <h1 style={header}>Welcome back, {user.username}</h1>
+      <h1 style={header}>Welcome back, {user.username} 👋</h1>
       <p style={subText}>
         {user.role === 'admin'
           ? 'Admin dashboard overview'
@@ -115,8 +123,30 @@ const Dashboard = () => {
             <p style={cardTitle}>Account Status</p>
             <p style={cardValue}>Active</p>
           </div>
+          <div style={userCard}>
+            <p style={cardTitle}>total borrows</p>
+            <p style={cardValue}>--</p>
+          </div>
+          <div style={userCard}>
+            <p style={cardTitle}>charage amount </p>
+            <p style={cardValue}>$</p>
+          </div>
+          <div style={userCard}>
+            <p style={cardTitle}>number of vialotions</p>
+            <p style={cardValue}>none</p>
+          </div>
+          <div style={userCard}>
+            <p style={cardTitle}> good customer ?</p>
+            <p style={cardValue}>Yes</p>
+          </div>
+        <div style={userCard}>
+            <p style={cardTitle}>Favitote Book </p>
+            <p style={cardValue}>--</p>
+          </div>
         </div>
       )}
+
+
 
       {/* Existing message (unchanged)
       <div style={{ marginTop: '30px', fontWeight: '600' }}>

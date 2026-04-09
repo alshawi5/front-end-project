@@ -3,86 +3,86 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
 }
 
 body {
-  background-color: #f0f2f5;
-  color: #1f2937;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background-attachment: fixed;
+  color: #e2e8f0;
   min-height: 100vh;
 }
 
 /* Links */
 a {
   text-decoration: none;
-  color: #2563eb;
-  transition: 0.2s;
+  color: #818cf8;
+  transition: color 0.2s;
 }
 a:hover {
-  color: #1d4ed8;
+  color: #c7d2fe;
 }
 
-/* NavBar */
-nav {
+/* Forms */
+form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px;
+  border-radius: 16px;
+  max-width: 420px;
+  margin-bottom: 30px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2563eb;
-  padding: 12px 24px;
-  border-radius: 8px;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input {
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+  color: #e2e8f0;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+input::placeholder {
+  color: #64748b;
+}
+
+input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+button {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
   color: white;
-  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 16px;
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  opacity: 0.92;
 }
 
-nav ul li {
-  font-weight: 500;
+button:active {
+  transform: translateY(0);
 }
 
 /* Headings */
 h1, h2 {
   margin-bottom: 12px;
-  color: #111827;
-}
-
-/* Forms */
-form {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  max-width: 400px;
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  font-size: 14px;
-}
-
-button {
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-button:hover {
-  background-color: #1d4ed8;
+  color: #f1f5f9;
 }
 
 /* Book List */
@@ -93,10 +93,11 @@ button:hover {
 }
 
 .book-card {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  padding: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -104,19 +105,19 @@ button:hover {
 }
 
 .book-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
 .book-card h3 {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
-  color: #111827;
+  color: #f1f5f9;
 }
 
 .book-card p {
   font-size: 14px;
-  color: #4b5563;
+  color: #94a3b8;
 }
 
 /* Card buttons */
@@ -134,12 +135,6 @@ button:hover {
 
 /* Responsive */
 @media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
   .books-container {
     grid-template-columns: 1fr;
   }

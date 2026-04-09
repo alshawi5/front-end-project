@@ -16,16 +16,31 @@ const NavBar = () => {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '12px 24px',
-    backgroundColor: '#2563eb',
-    color: '#fff',
+    padding: '0 32px',
+    height: '60px',
+    background: 'rgba(15, 23, 42, 0.85)',
+    backdropFilter: 'blur(16px)',
+    borderBottom: '1px solid rgba(255,255,255,0.07)',
+    color: '#e2e8f0',
+    position: 'sticky',
+    top: 0,
+    zIndex: 100,
     flexWrap: 'wrap',
+  };
+
+  const logoStyle = {
+    fontSize: '18px',
+    fontWeight: '700',
+    background: 'linear-gradient(135deg, #818cf8, #6366f1)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    letterSpacing: '-0.3px',
   };
 
   const ulStyle = {
     listStyle: 'none',
     display: 'flex',
-    gap: '16px',
+    gap: '6px',
     padding: 0,
     margin: 0,
     alignItems: 'center',
@@ -35,38 +50,49 @@ const NavBar = () => {
   const liStyle = {
     display: 'flex',
     alignItems: 'center',
-    gap: '6px',
   };
 
   const linkStyle = {
-    color: '#fff',
+    color: '#94a3b8',
     textDecoration: 'none',
     fontWeight: '500',
+    fontSize: '14px',
+    padding: '6px 12px',
+    borderRadius: '8px',
+    transition: 'background 0.2s, color 0.2s',
   };
 
   const buttonStyle = {
-    padding: '6px 12px',
-    borderRadius: '8px',
-    border: 'none',
+    padding: '7px 16px',
+    borderRadius: '20px',
+    border: '1px solid rgba(239,68,68,0.4)',
     cursor: 'pointer',
-    backgroundColor: '#f87171',
-    color: '#fff',
-    fontWeight: '500',
+    background: 'rgba(239,68,68,0.12)',
+    color: '#f87171',
+    fontWeight: '600',
+    fontSize: '13px',
+    transition: 'background 0.2s',
   };
 
   const usernameStyle = {
     fontWeight: '600',
+    fontSize: '14px',
+    color: '#e2e8f0',
+    padding: '6px 12px',
+    background: 'rgba(99,102,241,0.12)',
+    borderRadius: '8px',
+    border: '1px solid rgba(99,102,241,0.2)',
   };
 
   return (
     <nav style={navStyle}>
+      <span style={logoStyle}>📚 LibraryApp</span>
       {user ? (
         <ul style={ulStyle}>
           <li style={liStyle}>
             <span style={usernameStyle}>
-              Welcome, {user.username}
+              {user.username}{user.role === 'admin' && ' · Admin'}
             </span>
-            {user.role === 'admin' && <strong>(Admin)</strong>}
           </li>
 
           <li style={liStyle}>
